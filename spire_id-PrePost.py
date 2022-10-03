@@ -60,6 +60,6 @@ datafile['Score'] = datafile.iloc[:,12:47].mean(axis=1)
 
 now = datetime.now()
 dt = now.strftime("%Y%m%d-%M%S")
-datafile.to_excel('spire-merged-'+dt+'.xlsx', index=False)
+datafile.to_csv('spire-merged-prepost-'+dt+'.csv', index=False, sep=',')
 
 
