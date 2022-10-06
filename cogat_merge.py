@@ -43,7 +43,7 @@ merged = sheet.merge(sid, how='left', left_on=['Sheet_Last', 'Sheet_First', 'She
 
 now = datetime.now()
 dt = now.strftime("%Y%m%d-%M%S")
-merged.to_csv('Cogat-merged-'+dt+'.csv', index=False, sep=',')
+merged.to_excel('Cogat-merged-'+dt+'.xlsx', index=False)
 
 
 
