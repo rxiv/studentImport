@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 from tkinter import filedialog as fd
 import os.path
+import numpy as np
 
 append='set_1'
 
@@ -19,7 +20,7 @@ sid['Name'] = sid['Last_Name'] + ', ' + sid['First_Name']
 filepath= fd.askopenfilename(title='Student Data', initialdir='.', filetypes=(('xlsx files','*.xlsx'),('All files','*.*')))
 if filepath == '': exit()
 
-sheet = pd.read_excel(filepath, header=0, sheet_name='KDG')
+sheet = pd.read_excel(filepath, header=0, sheet_name='kdg')
 
 sheet['lower_name'] = sheet['Student'].apply(lambda x: str(x).replace(u"\u2019", "'").replace(u"\u2018", "'").lower())
 
@@ -28,28 +29,43 @@ merged = sheet.merge(sid, how='left', left_on=['lower_name'], right_on=['Name'])
 
 datafile = pd.DataFrame()
 
-datafile['First Name'] = merged['First_Name'].copy()
-datafile['Last Name'] = merged['Last_Name'].copy()
-datafile['Birth'] = merged['DOB'].copy()
-datafile['Grade'] = merged['Grade_Level'].copy()
+datafile['Student First Name'] = merged['First_Name'].copy()
+datafile['Student Last Name'] = merged['Last_Name'].copy()
+datafile['Student Middle Initial'] = merged['Middle_Name'].copy()
+
+datafile['Date Of Birth'] = merged['DOB'].copy()
+datafile['Student Grade Level'] = merged['Grade_Level'].copy()
+
+datafile['Student ID'] = merged['Student_Number'].copy()
+datafile['State Student ID'] = merged['State_StudentNumber'].copy()
 
 datafile['Phoneme Association'] = merged['Phoneme Association'].copy()
 datafile['Phoneme Segmentation'] = merged['Phoneme Segmentation'].copy()
 datafile['Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
 datafile['Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
-datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
-datafile['Student_Number'] = merged['Student_Number'].copy()
-datafile['SSN'] = merged['State_StudentNumber'].copy()
+datafile['Score'] = merged['Score'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
-datafile['Year'] = '2022-2023'
+datafile['Assessment Window'] = 'BOY'
 
+datafile['School Year'] = '2022-2023'
 
+datafile['State Student ID'].replace('', np.nan, inplace=True)
+datafile.dropna(subset=['State Student ID'], inplace=True)
+
+datafile = datafile.replace('C', '1')
+datafile = datafile.replace('A', '51')
+datafile = datafile.replace('M', '101')
+datafile = datafile.replace('E', '125')
+
+datafile = datafile.replace('At Risk', '25')
+datafile = datafile.replace('Some Risk', '50')
+datafile = datafile.replace('No Risk', '100')
 
 now = datetime.now()
 dt = now.strftime("%Y%m%d-%M%S")
-datafile.to_csv('mindplay_Grade_K_merged-'+ append + '-' + dt+'.txt', sep='\t', index=False)
+datafile.to_csv('mindplay_Grade_K_merged-'+ append + '-' + dt+'.csv', sep=',', index=False)
 
 
 sheet = pd.read_excel(filepath, header=0, sheet_name='1st')
@@ -61,27 +77,44 @@ merged = sheet.merge(sid, how='left', left_on=['lower_name'], right_on=['Name'])
 
 datafile = pd.DataFrame()
 
-datafile['First Name'] = merged['First_Name'].copy()
-datafile['Last Name'] = merged['Last_Name'].copy()
-datafile['Birth'] = merged['DOB'].copy()
-datafile['Grade'] = merged['Grade_Level'].copy()
+datafile['Student First Name'] = merged['First_Name'].copy()
+datafile['Student Last Name'] = merged['Last_Name'].copy()
+datafile['Student Middle Initial'] = merged['Middle_Name'].copy()
 
-datafile['Student'] = merged['Student'].copy()
+datafile['Date Of Birth'] = merged['DOB'].copy()
+datafile['Student Grade Level'] = merged['Grade_Level'].copy()
+
+datafile['Student ID'] = merged['Student_Number'].copy()
+datafile['State Student ID'] = merged['State_StudentNumber'].copy()
+
+
 datafile['Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
 datafile['Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
 datafile['Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
 datafile['Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
-datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
-datafile['Student_Number'] = merged['Student_Number'].copy()
-datafile['SSN'] = merged['State_StudentNumber'].copy()
+datafile['Score'] = merged['Score'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
-datafile['Year'] = '2022-2023'
+datafile['Assessment Window'] = 'BOY'
+
+datafile['School Year'] = '2022-2023'
+
+datafile['State Student ID'].replace('', np.nan, inplace=True)
+datafile.dropna(subset=['State Student ID'], inplace=True)
+
+datafile = datafile.replace('C', '1')
+datafile = datafile.replace('A', '51')
+datafile = datafile.replace('M', '101')
+datafile = datafile.replace('E', '125')
+
+datafile = datafile.replace('At Risk', '25')
+datafile = datafile.replace('Some Risk', '50')
+datafile = datafile.replace('No Risk', '100')
 
 now = datetime.now()
 dt = now.strftime("%Y%m%d-%M%S")
-datafile.to_csv('mindplay_Grade_1_merged-'+ append + '-' + dt+'.txt', sep='\t', index=False)
+datafile.to_csv('mindplay_Grade_1_merged-'+ append + '-' + dt+'.csv', sep=',', index=False)
 
 sheet = pd.read_excel(filepath, header=0, sheet_name='2nd')
 
@@ -92,24 +125,43 @@ merged = sheet.merge(sid, how='left', left_on=['lower_name'], right_on=['Name'])
 
 datafile = pd.DataFrame()
 
-datafile['First Name'] = merged['First_Name'].copy()
-datafile['Last Name'] = merged['Last_Name'].copy()
-datafile['Birth'] = merged['DOB'].copy()
-datafile['Grade'] = merged['Grade_Level'].copy()
+datafile['Student First Name'] = merged['First_Name'].copy()
+datafile['Student Last Name'] = merged['Last_Name'].copy()
+datafile['Student Middle Initial'] = merged['Middle_Name'].copy()
 
-datafile['Student'] = merged['Student'].copy()
+datafile['Date Of Birth'] = merged['DOB'].copy()
+datafile['Student Grade Level'] = merged['Grade_Level'].copy()
+
+datafile['Student ID'] = merged['Student_Number'].copy()
+datafile['State Student ID'] = merged['State_StudentNumber'].copy()
+
+
 datafile['Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
 datafile['Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
 datafile['Letter Discrimination'] = merged['Letter Discrimination'].copy()
 datafile['Fluency (Words/Min)'] = merged['Fluency (Words/Min)'].copy()
-datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
-datafile['Student_Number'] = merged['Student_Number'].copy()
-datafile['SSN'] = merged['State_StudentNumber'].copy()
+datafile['Score'] = merged['Score'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
-datafile['Year'] = '2022-2023'
+datafile['Assessment Window'] = 'BOY'
+
+datafile['School Year'] = '2022-2023'
+
+datafile['State Student ID'].replace('', np.nan, inplace=True)
+datafile.dropna(subset=['State Student ID'], inplace=True)
+
+datafile = datafile.replace('C', '1')
+datafile = datafile.replace('A', '51')
+datafile = datafile.replace('M', '101')
+datafile = datafile.replace('E', '125')
+
+datafile = datafile.replace('At Risk', '25')
+datafile = datafile.replace('Some Risk', '50')
+datafile = datafile.replace('No Risk', '100')
 
 now = datetime.now()
 dt = now.strftime("%Y%m%d-%M%S")
-datafile.to_csv('mindplay_Grade_2_merged-'+ append + '-' + dt+'.txt', sep='\t', index=False)
+datafile.to_csv('mindplay_Grade_2_merged-'+ append + '-' + dt+'.csv', sep=',', index=False)
+
+

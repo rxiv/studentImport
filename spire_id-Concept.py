@@ -11,7 +11,7 @@ def school_year() -> str:
         return str(year) +'-'+ str(year+1)
     return  str(year-1) +'-'+  str(year)
 
-filepath='PS Big File.txt'
+filepath='9_19_2022 All student Data.txt'
 if not os.path.exists(filepath):
     filepath = fd.askopenfilename(title='District PS Data', initialdir='.', filetypes=(('TXT files','*.txt'),('All files','*.*')))
     if filepath == '': exit()
@@ -32,7 +32,7 @@ merged = sheet.merge(sid, how='left', left_on=['Student'], right_on=['name'])
 datafile = pd.DataFrame()
 
 datafile['Student First Name'] = merged['First_Name'].copy()
-datafile['Student Middle Initial'] = ""
+datafile['Student Middle Initial'] = merged['Middle_Name'].copy()
 datafile['Student Last Name'] = merged['Last_Name'].copy()
 datafile['Student'] = merged['Student'].copy()
 
