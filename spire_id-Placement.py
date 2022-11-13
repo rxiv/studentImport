@@ -17,10 +17,10 @@ sid['First_Name'] = sid['First_Name'].apply(lambda x: str(x).replace(u"\u2019", 
 sid['Middle_Name'] = sid['Middle_Name'].apply(lambda x: str(x).replace(u"\u2019", "'").replace(u"\u2018", "'").lower())
 sid['Name'] = sid['First_Name'] + ' ' + sid['Last_Name']
 
-filepath= fd.askopenfilename(title='Student Data', initialdir='.', filetypes=(('xlsx files','*.xlsx'),('All files','*.*')))
+filepath= fd.askopenfilename(title='SPIRE Student Data', initialdir='.', filetypes=(('CSV files','*.csv'),('All files','*.*')))
 if filepath == '': exit()
 
-sheet = pd.read_excel(filepath, header=0)
+sheet = pd.read_csv(filepath)
 
 sheet['lower_name'] = sheet['Student'].apply(lambda x: str(x).replace(u"\u2019", "'").replace(u"\u2018", "'").lower())
 
