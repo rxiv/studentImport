@@ -36,7 +36,6 @@ datafile['Date of Birth'] = merged['DOB'].copy()
 datafile['Student Grade Level'] = merged['[1]Grade_Level'].copy()
 #datafile['Name Mismatch'] = merged['Student Last Name'].copy()
 
-
 now = datetime.now()
 dt = now.strftime("%Y%m%d-%M%S")
 datafile.to_csv('Benchmark-merged-'+dt+'.csv', index=False)
