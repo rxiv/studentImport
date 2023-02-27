@@ -5,6 +5,7 @@ import os.path
 import numpy as np
 
 append='set_1'
+assessment = 'MOY'
 
 filepath='9_19_2022 All student Data.txt'
 if not os.path.exists(filepath):
@@ -20,7 +21,7 @@ sid['Name'] = sid['Last_Name'] + ', ' + sid['First_Name']
 filepath= fd.askopenfilename(title='Student Data', initialdir='.', filetypes=(('xlsx files','*.xlsx'),('All files','*.*')))
 if filepath == '': exit()
 
-sheet = pd.read_excel(filepath, header=0, sheet_name='kdg')
+sheet = pd.read_excel(filepath, header=0, sheet_name='KDG')
 
 sheet['lower_name'] = sheet['Student'].apply(lambda x: str(x).replace(u"\u2019", "'").replace(u"\u2018", "'").lower())
 
@@ -43,11 +44,11 @@ datafile['Phoneme Association'] = merged['Phoneme Association'].copy()
 datafile['Phoneme Segmentation'] = merged['Phoneme Segmentation'].copy()
 datafile['Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
 datafile['Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
-datafile['Score'] = merged['Score'].copy()
+datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
-datafile['Assessment Window'] = 'BOY'
+datafile['Assessment Window'] = assessment
 
 datafile['School Year'] = '2022-2023'
 
@@ -87,16 +88,21 @@ datafile['Student Grade Level'] = merged['Grade_Level'].copy()
 datafile['Student ID'] = merged['Student_Number'].copy()
 datafile['State Student ID'] = merged['State_StudentNumber'].copy()
 
-
+datafile['Phoneme Association'] = merged['Phoneme Association'].copy()
+datafile['Phoneme Segmentation'] = merged['Phoneme Segmentation'].copy()
 datafile['Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
 datafile['Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
-datafile['Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
-datafile['Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
-datafile['Score'] = merged['Score'].copy()
+datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
+
+#datafile['Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
+#datafile['Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
+#datafile['Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
+#datafile['Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
+
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
-datafile['Assessment Window'] = 'BOY'
+datafile['Assessment Window'] = assessment
 
 datafile['School Year'] = '2022-2023'
 
@@ -135,16 +141,15 @@ datafile['Student Grade Level'] = merged['Grade_Level'].copy()
 datafile['Student ID'] = merged['Student_Number'].copy()
 datafile['State Student ID'] = merged['State_StudentNumber'].copy()
 
-
 datafile['Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
 datafile['Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
 datafile['Letter Discrimination'] = merged['Letter Discrimination'].copy()
 datafile['Fluency (Words/Min)'] = merged['Fluency (Words/Min)'].copy()
-datafile['Score'] = merged['Score'].copy()
+datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
-datafile['Assessment Window'] = 'BOY'
+datafile['Assessment Window'] = assessment
 
 datafile['School Year'] = '2022-2023'
 
