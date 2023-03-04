@@ -40,11 +40,15 @@ datafile['Student Grade Level'] = merged['Grade_Level'].copy()
 datafile['Student ID'] = merged['Student_Number'].copy()
 datafile['State Student ID'] = merged['State_StudentNumber'].copy()
 
-datafile['Phoneme Association'] = merged['Phoneme Association'].copy()
-datafile['Phoneme Segmentation'] = merged['Phoneme Segmentation'].copy()
-datafile['Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
-datafile['Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
-datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
+datafile['Score'] = merged['Risk Indicator'].copy()
+datafile['Score Detail 1 Phoneme Association'] = merged['Phoneme Association'].copy()
+datafile['Score Detail 2 Phoneme Segmentation'] = merged['Phoneme Segmentation'].copy()
+datafile['Score Detail 3 Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
+datafile['Score Detail 4 Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
+# datafile['Score Detail 5 Encoding (Nonsense)'] = '' #merged['Encoding (Nonsense)'].copy()
+# datafile['Score Detail 6 Encoding (Real)'] = '' #merged['Encoding (Nonsense)'].copy()
+# datafile['Score Detail 7 Letter Discrimination'] = '' #merged['Letter Discrimination'].copy()
+# datafile['Score Detail 8 Fluency (Words/Min)'] = '' #merged['Fluency (Words/Min)'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
@@ -88,17 +92,15 @@ datafile['Student Grade Level'] = merged['Grade_Level'].copy()
 datafile['Student ID'] = merged['Student_Number'].copy()
 datafile['State Student ID'] = merged['State_StudentNumber'].copy()
 
-datafile['Phoneme Association'] = merged['Phoneme Association'].copy()
-datafile['Phoneme Segmentation'] = merged['Phoneme Segmentation'].copy()
-datafile['Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
-datafile['Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
-datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
-
-#datafile['Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
-#datafile['Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
-#datafile['Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
-#datafile['Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
-
+datafile['Score'] = merged['Risk Indicator'].copy()
+# datafile['Score Detail 1 Phoneme Association'] = '' #merged['Phoneme Association'].copy()
+# datafile['Score Detail 2 Phoneme Segmentation'] = '' #merged['Phoneme Segmentation'].copy()
+datafile['Score Detail 3 Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
+datafile['Score Detail 4 Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
+datafile['Score Detail 5 Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
+datafile['Score Detail 6 Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
+# datafile['Score Detail 7 Letter Discrimination'] = '' #merged['Letter Discrimination'].copy()
+# datafile['Score Detail 8 Fluency (Words/Min)'] = '' #merged['Fluency (Words/Min)'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
@@ -141,11 +143,15 @@ datafile['Student Grade Level'] = merged['Grade_Level'].copy()
 datafile['Student ID'] = merged['Student_Number'].copy()
 datafile['State Student ID'] = merged['State_StudentNumber'].copy()
 
-datafile['Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
-datafile['Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
-datafile['Letter Discrimination'] = merged['Letter Discrimination'].copy()
-datafile['Fluency (Words/Min)'] = merged['Fluency (Words/Min)'].copy()
-datafile['Risk Indicator'] = merged['Risk Indicator'].copy()
+datafile['Score'] = merged['Risk Indicator'].copy()
+# datafile['Score Detail 1 Phoneme Association'] = '' #merged['Phoneme Association'].copy()
+# datafile['Score Detail 2 Phoneme Segmentation'] = '' #merged['Phoneme Segmentation'].copy()
+# datafile['Score Detail 3 Alphabet Knowledge'] = '' #merged['Alphabet Knowledge'].copy()
+# datafile['Score Detail 4 Sound Symbol Recognition'] = '' #merged['Sound Symbol Recognition'].copy()
+datafile['Score Detail 5 Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
+datafile['Score Detail 6 Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
+datafile['Score Detail 7 Letter Discrimination'] = merged['Letter Discrimination'].copy()
+datafile['Score Detail 8 Fluency (Words/Min)'] = merged['Fluency (Words/Min)'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
