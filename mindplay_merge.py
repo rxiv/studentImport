@@ -4,8 +4,9 @@ from tkinter import filedialog as fd
 import os.path
 import numpy as np
 
-append='set_1'
+append=''
 assessment = 'MOY'
+today = datetime.now().strftime("%Y%m%d-%M%S")
 
 filepath='9_19_2022 All student Data.txt'
 if not os.path.exists(filepath):
@@ -45,10 +46,6 @@ datafile['Score Detail 1 Phoneme Association'] = merged['Phoneme Association'].c
 datafile['Score Detail 2 Phoneme Segmentation'] = merged['Phoneme Segmentation'].copy()
 datafile['Score Detail 3 Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
 datafile['Score Detail 4 Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
-# datafile['Score Detail 5 Encoding (Nonsense)'] = '' #merged['Encoding (Nonsense)'].copy()
-# datafile['Score Detail 6 Encoding (Real)'] = '' #merged['Encoding (Nonsense)'].copy()
-# datafile['Score Detail 7 Letter Discrimination'] = '' #merged['Letter Discrimination'].copy()
-# datafile['Score Detail 8 Fluency (Words/Min)'] = '' #merged['Fluency (Words/Min)'].copy()
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
@@ -68,9 +65,7 @@ datafile = datafile.replace('At Risk', '25')
 datafile = datafile.replace('Some Risk', '50')
 datafile = datafile.replace('No Risk', '100')
 
-now = datetime.now()
-dt = now.strftime("%Y%m%d-%M%S")
-datafile.to_csv('mindplay_Grade_K_merged-'+ append + '-' + dt+'.csv', sep=',', index=False)
+datafile.to_csv('mindplay_Grade_K_merged-'+ append + '-' + today +'.csv', sep=',', index=False)
 
 
 sheet = pd.read_excel(filepath, header=0, sheet_name='1st')
@@ -93,14 +88,12 @@ datafile['Student ID'] = merged['Student_Number'].copy()
 datafile['State Student ID'] = merged['State_StudentNumber'].copy()
 
 datafile['Score'] = merged['Risk Indicator'].copy()
-# datafile['Score Detail 1 Phoneme Association'] = '' #merged['Phoneme Association'].copy()
-# datafile['Score Detail 2 Phoneme Segmentation'] = '' #merged['Phoneme Segmentation'].copy()
+
 datafile['Score Detail 3 Alphabet Knowledge'] = merged['Alphabet Knowledge'].copy()
 datafile['Score Detail 4 Sound Symbol Recognition'] = merged['Sound Symbol Recognition'].copy()
 datafile['Score Detail 5 Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
 datafile['Score Detail 6 Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
-# datafile['Score Detail 7 Letter Discrimination'] = '' #merged['Letter Discrimination'].copy()
-# datafile['Score Detail 8 Fluency (Words/Min)'] = '' #merged['Fluency (Words/Min)'].copy()
+
 
 datafile['Assessment Group'] = 'Mind Play Dyslexia'
 datafile['Assessment Name'] = 'Mindplay Risk Indicator'
@@ -120,9 +113,7 @@ datafile = datafile.replace('At Risk', '25')
 datafile = datafile.replace('Some Risk', '50')
 datafile = datafile.replace('No Risk', '100')
 
-now = datetime.now()
-dt = now.strftime("%Y%m%d-%M%S")
-datafile.to_csv('mindplay_Grade_1_merged-'+ append + '-' + dt+'.csv', sep=',', index=False)
+datafile.to_csv('mindplay_Grade_1_merged-'+ append + '-' + today +'.csv', sep=',', index=False)
 
 sheet = pd.read_excel(filepath, header=0, sheet_name='2nd')
 
@@ -144,10 +135,7 @@ datafile['Student ID'] = merged['Student_Number'].copy()
 datafile['State Student ID'] = merged['State_StudentNumber'].copy()
 
 datafile['Score'] = merged['Risk Indicator'].copy()
-# datafile['Score Detail 1 Phoneme Association'] = '' #merged['Phoneme Association'].copy()
-# datafile['Score Detail 2 Phoneme Segmentation'] = '' #merged['Phoneme Segmentation'].copy()
-# datafile['Score Detail 3 Alphabet Knowledge'] = '' #merged['Alphabet Knowledge'].copy()
-# datafile['Score Detail 4 Sound Symbol Recognition'] = '' #merged['Sound Symbol Recognition'].copy()
+
 datafile['Score Detail 5 Encoding (Nonsense)'] = merged['Encoding (Nonsense)'].copy()
 datafile['Score Detail 6 Encoding (Real)'] = merged['Encoding (Nonsense)'].copy()
 datafile['Score Detail 7 Letter Discrimination'] = merged['Letter Discrimination'].copy()
@@ -171,8 +159,6 @@ datafile = datafile.replace('At Risk', '25')
 datafile = datafile.replace('Some Risk', '50')
 datafile = datafile.replace('No Risk', '100')
 
-now = datetime.now()
-dt = now.strftime("%Y%m%d-%M%S")
-datafile.to_csv('mindplay_Grade_2_merged-'+ append + '-' + dt+'.csv', sep=',', index=False)
+datafile.to_csv('mindplay_Grade_2_merged-'+ append + '-' + today +'.csv', sep=',', index=False)
 
 
